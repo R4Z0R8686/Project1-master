@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ZXC.UI.Models.ViewModelContaCliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>REF</th>
+        <th>CLIENTE ID</th>
+        <th>NOME</th>
+        <th>MARCA</th>
+        <th>MODELO</th>
+        <th>OBS</th>
+        <th>Validade</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>@item.conta.Ref</td>
+    <td>@item.conta.Cliente_ID</td>
+    <td>@item.cliente.Nome</td>
+    <td>@item.conta.Marca</td>
+    <td>@item.conta.Modelo</td>
+    <td>@item.conta.Obs</td>
+    <td>@item.venda.Validade_Atual</td>
+
+    <td></td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.conta.Ref }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.conta.Ref })
+    </td>
+</tr>
+}
+
+</table>
